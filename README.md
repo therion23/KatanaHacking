@@ -1,9 +1,11 @@
 # KatanaHacking
-USB protocol and IR codes for the Creative Sound BlasterX Katana
+USB protocol and IR codes for the Creative Sound BlasterX Katana.
 
 ## DISCLAIMER
 
+No warranties! Use at your own risk! If anything breaks, it's NOT my fault.
 
+If your Katana fries from trying out the USB commands documented here, it should be considered a firmware bug and filed with Creative.
 
 ## tl;dr:
 - [USB protocol](USB.md)
