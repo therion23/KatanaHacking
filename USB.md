@@ -4,6 +4,8 @@ The following incredibly incomplete tables show how to send commands to the Crea
 
 Note that only root can write to a hidraw device. There is probably an absurdly simple way around this, with an even more absurd number of potential consequences. Caveat emptor.
 
+Note also that if you intend to program something around this, allocating 64 bytes for a receive buffer would be a good idea. The Katana always sends responses in 0 padded 64 byte blocks.
+
 ## Structures
 
 The command and response structures are identical:
