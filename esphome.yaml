@@ -3,8 +3,10 @@
 #
 # Written by Bo Krogsgaard in 2021, and donated to the Public Domain.
 #
-# Note that esphome will nosedive if you enable FastLED, i.e. the integrated WS2812B, so
-# i left the configuration here but commented out, in case it gets fixed in the future.
+# Note that esphome will nosedive if you enable FastLED when using remote_transmitter,
+# which is why neopixelbus is used here. A discussion about that issue can be found here:
+#
+# https://github.com/esphome/issues/issues/1973
 #
 # You should also know that the IR LED in the Atom Lite is incredibly weak, so your best
 # bet is powering it from the Katana's USB host port, using a typical 15cm cable.
@@ -120,14 +122,15 @@ switch:
         address: 0x2283
         command: 0xED12
 
-#light:
-#  - platform: fastled_clockless
-#    chipset: WS2812B
-#    pin: 27
-#    num_leds: 1
-#    rgb_order: GRB
-#    id: status_led
-#    name: Katana Light
+light:
+  - platform: neopixelbus
+    variant: WS2812X
+    pin: GPIO27
+    num_leds: 1
+    type: GRB
+    id: status_led
+    name: "Katana Light"
+    method: BIT_BANG
 #    effects:
 #      - random:
 #      - flicker:
@@ -138,7 +141,7 @@ binary_sensor:
     pin:
       number: 39
       inverted: true
-    name: Katana Button
-#    on_press:
-#      then:
-#        - light.toggle: status_led
+    name: "Katana Button"
+    on_press:
+      then:
+        - light.toggle: status_led
