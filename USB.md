@@ -60,6 +60,10 @@ Neither of the above unknown values match the serial number or the Bluetooth MAC
 
 - Length 1, Data 0x00 for off, anything else for on. This affects the currently selected profile only.
 
+#### Subcommand 0x15 - Set lighting pattern name
+
+- Data (after subcommand) is 0xNN for profile NN 0 thru 5, two bytes for length of name, and finally the name of the lighting pattern, where every character is followed by 0x00 (see 0x16 below). Strangely enough, it replies with an error (0x02), but it works just fine regardless.
+
 #### Subcommand 0x16 - Get lighting pattern name
 
 - Length 1, Data 0xNN for profile NN 0 thru 5. Returns Length, 0x16, 0xNN, length of string - twice, 0x00 and finally the name of the lighting pattern, where every character is followed by 0x00. So 'Test' would be `0x04 0x04 0x00 'T' 0x00 'e' 0x00 's' 0x00 't' 0x00`. Note that if a profile has lighting disabled, this function will return 'Lights Off' instead of the name of the stored pattern.
