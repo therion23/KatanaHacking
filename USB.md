@@ -25,14 +25,14 @@ Magic byte 0x5a, command 0x1a, followed by 3 bytes of data.
 
 ### 0x07 - System information
 
-Length 1, Data 0x00 - Returns a 10 byte data array
-Length 1, Data 0x01 - Returns a 7 byte data array
-Length 1, Data 0x02 - Returns firmware version as an ASCII string, 0 terminated
-Length 1, Data 0x03 - Returns 9 bytes in hexadecimal notation as a 0 terminated ASCII string
+- Length 1, Data 0x00 - Returns a 10 byte data array
+- Length 1, Data 0x01 - Returns a 7 byte data array
+- Length 1, Data 0x02 - Returns firmware version as an ASCII string, 0 terminated
+- Length 1, Data 0x03 - Returns 9 bytes in hexadecimal notation as a 0 terminated ASCII string
 
 
 ## Responses
 
 ### 0x02 - Error
 
-The length will usually be 10, but sometimes only 2. The first Data byte is the command that failed.
+- The length will usually be 10, but sometimes only 2. The first Data byte is the command that failed.
