@@ -46,7 +46,7 @@ Neither of the above unknown values match the serial number or the Bluetooth MAC
 
 ### 0x23 - Volume (response only)
 
-- Returns Length 3, Data 0x00 0xNN 0x00, where NN is one more than the volume displayed on the Katana itself (usually half of what Windows would tell you).
+- Returns Length 3, Data 0x00 0xNN 0x00, where NN is the volume displayed on the Katana itself (usually half of what Windows reports).
 
 ### 0x3a - Lighting
 
@@ -59,6 +59,10 @@ Neither of the above unknown values match the serial number or the Bluetooth MAC
 #### Subcommand 0x06 - Lighting On/Off
 
 - Length 1, Data 0x00 for off, anything else for on. This affects the currently selected profile only.
+
+#### Subcommand 0x16 - Get lighting pattern name
+
+- Length 1, Data 0xNN for profile NN 0 thru 5. Returns Length, 0x16, 0xNN, length of string - twice, 0x00 and finally the name of the lighting pattern, where every character is followed by 0x00. So 'Test' would be `0x04 0x04 0x00 'T' 0x00 'e' 0x00 's' 0x00 't' 0x00`. Note that if a profile has lighting disabled, this function will return 'Lights Off' instead of the name of the stored pattern.
 
 ### 0x9c - Input
 
@@ -78,4 +82,4 @@ Neither of the above unknown values match the serial number or the Bluetooth MAC
 
 #### Subcommand 0x06 - Input status (response only)
 
-- Returns Length 14. Four bytes of something, followed by five pairs of bytes - the index of the device (see subcommand 0x00) followed by its readiness, i.e. 0x01 if a jack plug is inserted in the AUX port, 0x00 if not.
+- Returns Length 14. Four bytes of something, followed by five pairs of bytes - the index of the device (see subcommand 0x00) followed by its readiness, i.e. 0x04 0x01 if a jack plug is inserted in the AUX port, 0x04 0x00 if not.
