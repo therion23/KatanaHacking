@@ -5,7 +5,7 @@ USB protocol and IR codes for the Creative Sound BlasterX Katana.
 
 No warranties! Use at your own risk! If anything breaks, it's NOT my fault.
 
- If your Katana fries from trying out the USB commands documented here, it should be considered a firmware bug and filed with Creative.
+If your Katana fries from trying out the USB commands documented here, it should be considered a firmware bug and filed with Creative.
 
 ## tl;dr:
 - [USB protocol](USB.md)
@@ -17,6 +17,8 @@ No warranties! Use at your own risk! If anything breaks, it's NOT my fault.
 - IR codes read using an ESP32 and a standard 38kHz infrared photocell.
 - No reverse engineering of drivers, applications or firmware files have taken place. Frankly, i wouldn't know where to begin.
 
-## Inspired by:
+## Inspired and helped by:
 - [Ian Douglas Scott](https://iandouglasscott.com/2018/01/14/reverse-engineering-creative-sound-blaster-e1/)
 - [Christos Arvanitis](https://arvchristos.github.io/post/matching-dev-hidraw-devices-with-physical-devices/)
+- [David Sword](https://davidsword.ca/create-custom-ir-remote-with-home-assistant-esphome/)
+- [Tatham Oddie](https://gist.github.com/tathamoddie/62afc41e5b4464f5adeef4b580fb3294)
