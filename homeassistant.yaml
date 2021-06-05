@@ -1,0 +1,107 @@
+#
+# Incredibly fugly proof-of-concept control panel for Home Assistant. It shouldn't be too
+# difficult to snazz it up a bit, but that's all up to you.
+#
+# Written by Bo Krogsgaard in 2021, and donated to the Public Domain.
+#
+# Create a Vertical Stack, edit, show code editor and paste the below over what's already
+# there.
+#
+
+type: vertical-stack
+cards:
+  - type: grid
+    cards:
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_mute
+        show_state: false
+        show_name: true
+      - type: button
+        tap_action:
+          action: toggle
+        show_state: false
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_power
+  - type: grid
+    cards:
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_bass
+        show_state: false
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_plus
+        show_state: false
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_sbx
+  - type: grid
+    cards:
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_left
+        show_state: false
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_playpause
+        show_state: false
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_right
+  - type: grid
+    cards:
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_display
+        show_state: false
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_minus
+        show_state: false
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_led
+  - type: grid
+    cards:
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_bluetooth
+        show_state: false
+      - type: button
+        tap_action:
+          action: toggle
+        show_state: false
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_usb
+  - type: grid
+    cards:
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_computer
+        show_state: false
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_optical
+        show_state: false
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.katana_aux

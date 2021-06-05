@@ -1,5 +1,7 @@
 #
-# Sample config snippet for M5Stack Atom Lite
+# Sample config snippet for M5Stack Atom Lite.
+#
+# Written by Bo Krogsgaard in 2021, and donated to the Public Domain.
 #
 # Note that esphome will nosedive if you enable FastLED, i.e. the integrated WS2812B, so
 # i left the configuration here but commented out, in case it gets fixed in the future.
