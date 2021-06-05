@@ -66,7 +66,7 @@ Neither of the above unknown values match the serial number or the Bluetooth MAC
 
 #### Subcommand 0x00 - Set input
 
-- Length 2, Data (with subcommand) 0x00 0xNN, where NN is 0x01 for Bluetooth, 0x04 for AUX (Jack in), 0x07 for Optical (S/PDIF), 0x09 for USB (mass storage), or 0x0C for Computer (via USB cable).
+- Length 2, Data (with subcommand) 0x00 0xNN, where NN is 0x01 for Bluetooth, 0x04 for AUX (Jack in), 0x07 for Optical (S/PDIF), 0x09 for USB (mass storage), or 0x0C for Computer (via USB cable). Note that this command returns an error (0x02) followed immediately by an acknowledging packet - no idea why, but it does the job.
 
 #### Subcommand 0x01 - Query input
 
