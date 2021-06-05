@@ -50,12 +50,28 @@ Neither of the above unknown values match the serial number or the Bluetooth MAC
 
 ### 0x3a - Lighting
 
-- Lighting contains a large amount of subcommands, which is specified as the first byte of Data.
+- Lighting contains a large amount of subcommands, which are specified as the first byte of Data.
 
-#### 0x05 - Get lighting pattern
+#### Subcommand 0x05 - Get lighting pattern
 
 - Length 3, Data (with subcommand) 0x05 0x01 0xNN, where NN is the profile number. Returns 54 bytes of Data, where the first 3 match your query, followed by 0xYY and 0xZZ, followed by 7 patterns of 7 bytes each. YY is usually 0x07, possibly signifying the number of patterns to follow. ZZ is usually 0x00.
 
-#### 0x06 - Lighting On/Off
+#### Subcommand 0x06 - Lighting On/Off
 
 - Length 1, Data 0x00 for off, anything else for on. This affects the currently selected profile only.
+
+### 0x9c - Input
+
+- Input contains a three (known) subcommands, which are specified as the first byte of Data.
+
+#### Subcommand 0x00 - Set input
+
+- Length 2, Data (with subcommand) 0x00 0xNN, where NN is 0x01 for Bluetooth, 0x04 for AUX (Jack in), 0x07 for Optical (S/PDIF), 0x09 for USB (mass storage), or 0x0C for Computer (via USB cable).
+
+#### Subcommand 0x01 - Query input
+
+- Length 1, Data (with subcommand) 0x01. Returns 6 bytes of Data, where the second is the currently active input as per the above list.
+
+#### Subcommand 0x02 - Unknown
+
+- Length 1, Data (with subcommand) 0x02. Returns 18 bytes of Data. It seems to be three bytes of something, followed by three bytes per input (device number as per above, followed by 0x02 0x01).
