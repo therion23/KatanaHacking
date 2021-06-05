@@ -27,7 +27,7 @@ Magic byte 0x5a, command 0x1a, followed by 3 bytes of Data.
 
 ### 0x02 - Error (response only)
 
-- Returns Length 10 (sometimes only 2). The first Data byte is the command that failed.
+- Returns Length 10 (sometimes only 2). The first Data byte is the command that failed. There is possibly a distinction in response codes between invalid commands and invalid Data sent to a valid command.
 
 ### 0x07 - System information
 
