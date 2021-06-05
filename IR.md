@@ -13,6 +13,7 @@ Note that the remote is the only way of manipulating the intensity of the subwoo
 | Button       | Command  | Raw-Data   |
 |--------------|----------|------------|
 | Mute         | 0x0C     | 0xF30C2283 |
+| | | |
 | Power        | 0x08     | 0xF7082283 |
 | | | |
 | Bass         | 0x0F     | 0xF00F2283 |
@@ -28,9 +29,9 @@ Note that the remote is the only way of manipulating the intensity of the subwoo
 | LED          | 0x02     | 0xFD022283 |
 | | | |
 | Bluetooth    | 0x1C     | 0xE31C2283 |
+| | | |
 | USB          | 0x15     | 0xEA152283 |
 | | | |
 | Computer     | 0x13     | 0xEC132283 |
 | Optical      | 0x11     | 0xEE112283 |
 | AUX          | 0x12     | 0xED122283 |
-|--------------|----------|------------|
