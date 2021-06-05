@@ -75,3 +75,7 @@ Neither of the above unknown values match the serial number or the Bluetooth MAC
 #### Subcommand 0x02 - Unknown
 
 - Length 1, Data (with subcommand) 0x02. Returns 18 bytes of Data. It seems to be three bytes of something, followed by three bytes per input (device number as per above, followed by 0x02 0x01).
+
+#### Subcommand 0x06 - Input status (response only)
+
+- Returns Length 14. Four bytes of something, followed by five pairs of bytes - the index of the device (see subcommand 0x00) followed by its readiness, i.e. 0x01 if a jack plug is inserted in the AUX port, 0x00 if not.
