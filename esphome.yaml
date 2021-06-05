@@ -1,0 +1,142 @@
+#
+# Sample config snippet for M5Stack Atom Lite
+#
+# Note that esphome will nosedive if you enable FastLED, i.e. the integrated WS2812B, so
+# i left the configuration here but commented out, in case it gets fixed in the future.
+#
+# You should also know that the IR LED in the Atom Lite is incredibly weak, so your best
+# bet is powering it from the Katana's USB host port, using a typical 15cm cable.
+#
+# Run "esphome katana.yaml wizard" and add the following to katana.yaml before building.
+#
+
+remote_transmitter:
+  pin:
+    number: GPIO12
+  carrier_duty_percent: 50%
+
+switch:
+  - platform: template
+    name: "Katana Mute"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xF30C
+  - platform: template
+    name: "Katana Power"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xF708
+
+  - platform: template
+    name: "Katana Bass"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xF00F
+  - platform: template
+    name: "Katana Plus"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xF50a
+  - platform: template
+    name: "Katana SBX"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xE916
+
+  - platform: template
+    name: "Katana Left"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xF807
+  - platform: template
+    name: "Katana PlayPause"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xF609
+  - platform: template
+    name: "Katana Right"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xF906
+
+  - platform: template
+    name: "Katana Display"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xFF00
+  - platform: template
+    name: "Katana Minus"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xFE01
+  - platform: template
+    name: "Katana LED"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xFD02
+
+  - platform: template
+    name: "Katana Bluetooth"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xE31C
+  - platform: template
+    name: "Katana USB"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xEA15
+
+  - platform: template
+    name: "Katana Computer"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xEC13
+  - platform: template
+    name: "Katana Optical"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xEE11
+  - platform: template
+    name: "Katana AUX"
+    turn_on_action:
+      remote_transmitter.transmit_nec:
+        address: 0x2283
+        command: 0xED12
+
+#light:
+#  - platform: fastled_clockless
+#    chipset: WS2812B
+#    pin: 27
+#    num_leds: 1
+#    rgb_order: GRB
+#    id: status_led
+#    name: Katana Light
+#    effects:
+#      - random:
+#      - flicker:
+#      - addressable_rainbow:
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: 39
+      inverted: true
+    name: Katana Button
+#    on_press:
+#      then:
+#        - light.toggle: status_led
