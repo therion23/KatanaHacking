@@ -19,20 +19,41 @@ The command and response structures are identical:
 
 `# echo –n –e '\x5A\x1A\x03\x00\x02\x01' > /dev/hidraw1`
 
-Magic byte 0x5a, command 0x1a, followed by 3 bytes of data.
+Magic byte 0x5a, command 0x1a, followed by 3 bytes of Data.
 
-## Commands
+## Commands and responses
+
+### 0x02 - Error (response only)
+
+- Returns Length 10 (sometimes only 2). The first Data byte is the command that failed.
 
 ### 0x07 - System information
 
-- Length 1, Data 0x00 - Returns a 10 byte data array
-- Length 1, Data 0x01 - Returns a 7 byte data array
+- Length 1, Data 0x00 - Returns 10 bytes of Data
+- Length 1, Data 0x01 - Returns 7 bytes of Data
 - Length 1, Data 0x02 - Returns firmware version as an ASCII string, 0 terminated
 - Length 1, Data 0x03 - Returns 9 bytes in hexadecimal notation as a 0 terminated ASCII string
 
+Neither of the above unknown values match the serial number or the Bluetooth MAC address.
 
-## Responses
+### 0x11 - Unknown - Triggered by pressing the SBX Button
 
-### 0x02 - Error
+### 0x1a - Profiles
 
-- The length will usually be 10, but sometimes only 2. The first Data byte is the command that failed.
+- Length 3, Data 0x02 0x00 0xNN - Select profile NN (0 for Neutral, 1-4 for stored profiles, 5 for "Personal", which i assume is a temporary profile). Returns 2 bytes of Data, 0x02 and 0xNN from before. Note that the returned profile number is sometimes XOR 0x80 for reasons unknown to me.
+
+### 0x23 - Volume (response only)
+
+- Returns Length 3, Data 0x00 0xNN 0x00, where NN is one more than the volume displayed on the Katana itself (usually half of what Windows would tell you).
+
+### 0x3a - Lighting
+
+- Lighting contains a large amount of subcommands, which is specified as the first byte of Data.
+
+#### 0x05 - Get lighting pattern
+
+- Length 3, Data (with subcommand) 0x05 0x01 0xNN, where NN is the profile number. Returns 54 bytes of Data, where the first 3 match your query, followed by 0xYY and 0xZZ, followed by 7 patterns of 7 bytes each. YY is usually 0x07, possibly signifying the number of patterns to follow. ZZ is usually 0x00.
+
+#### 0x06 - Lighting On/Off
+
+- Length 1, Data 0x00 for off, anything else for on. This affects the currently selected profile only.
