@@ -52,6 +52,10 @@ Neither of the above unknown values match the serial number or the Bluetooth MAC
 
 - Lighting contains a large amount of subcommands, which are specified as the first byte of Data.
 
+#### Subcommand 0x04 - Set lighting pattern
+
+- Data (after subcommand) 0x00 0xNN 0xYY 0xZZ, followed by 7 patterns of 7 bytes each (see subcommand 0x05 below). Returns an error, and i am yet to get it working.
+
 #### Subcommand 0x05 - Get lighting pattern
 
 - Length 3, Data (with subcommand) 0x05 0x01 0xNN, where NN is the profile number. Returns 54 bytes of Data, where the first 3 match your query, followed by 0xYY and 0xZZ, followed by 7 patterns of 7 bytes each. YY is usually 0x07, possibly signifying the number of patterns to follow. ZZ is usually 0x00.
@@ -59,6 +63,14 @@ Neither of the above unknown values match the serial number or the Bluetooth MAC
 #### Subcommand 0x06 - Lighting On/Off
 
 - Length 1, Data 0x00 for off, anything else for on. This affects the currently selected profile only.
+
+#### Subcommand 0x0a - Set palette
+
+- Length 33, Data (after subcommand) 0x?? (can be 0 or 1) 0xNN (profile) 0x01 0x01, followed by 7 sets of 4 bytes each, defining the palette. The palette format is (yet) unknown to me.
+
+#### Subcommand 0x0b - Get palette
+
+- Data (after subcommand) 0x?? (can be 0 or 1) 0xNN (profile), followed by one or three bytes. Returns palette in the above format.
 
 #### Subcommand 0x15 - Set lighting pattern name
 
