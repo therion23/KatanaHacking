@@ -5,14 +5,14 @@ USB protocol and IR codes for the Creative Sound BlasterX Katana.
 
 No warranties! Use at your own risk! If anything breaks, it's NOT my fault.
 
-If your Katana fries from trying out the USB commands documented here, it should be considered a firmware bug and filed with Creative.
+ If your Katana fries from trying out the USB commands documented here, it should be considered a firmware bug and filed with Creative.
 
 ## tl;dr:
 - [USB protocol](USB.md)
 - [Infrared codes](IR.md)
 
 ## What was used:
-- Firmware 2.1.210426.140
+- Firmware 2.1.210426.140 - this firmware update was not accompanied by a driver or application update, so i suppose this will work with the 2019 firmware as well.
 - USB protocol captured using Wireshark and USBPcap on Windows, and analysed using Wireshark on Linux.
 - IR codes read using an ESP32 and a standard 38kHz infrared photocell.
 - No reverse engineering of drivers, applications or firmware files have taken place. Frankly, i wouldn't know where to begin.
