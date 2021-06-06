@@ -38,7 +38,13 @@ Magic byte 0x5a, command 0x1a, followed by 3 bytes of Data.
 
 Neither of the above unknown values match the serial number or the Bluetooth MAC address.
 
-### 0x11 - Unknown - Triggered by pressing the SBX Button
+### 0x11 - Get equalizer data
+
+- Commands are always three bytes long. Responses are always two bytes indicating how many sets of six bytes follow.
+
+### 0x12 - Set equalizer data
+
+- Commands are always seven bytes long. Responses are often error 0x02's.
 
 ### 0x1a - Profiles
 
@@ -47,6 +53,9 @@ Neither of the above unknown values match the serial number or the Bluetooth MAC
 ### 0x23 - Volume (response only)
 
 - Returns Length 3, Data 0x00 0xNN 0x00, where NN is the volume displayed on the Katana itself (usually half of what Windows reports).
+
+### 0x26 - Acoustic engine (Windows only?)
+
 
 ### 0x3a - Lighting
 
@@ -99,3 +108,15 @@ Neither of the above unknown values match the serial number or the Bluetooth MAC
 #### Subcommand 0x06 - Input status (response only)
 
 - Returns Length 14. Four bytes of something, followed by five pairs of bytes - the index of the device (see subcommand 0x00) followed by its readiness, i.e. 0x04 0x01 if a jack plug is inserted in the AUX port, 0x04 0x00 if not.
+
+
+## Equalizer registers
+
+- 0x95 0x04 - Voice Clarity Noise Reduction
+- 0x95 0x05 - Voice Morph
+- 0x96 0x07 - Crystalizer
+- 0x96 0x09 - Equalizer on/off
+- 0x96 0x70 - Smart Volume
+- 0x96 0x71 - Surround / Immersion
+- 0x96 0x72 - Dialog+
+- 0x97 0x02 - Dolby
