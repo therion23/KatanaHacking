@@ -31,14 +31,13 @@ Magic byte 0x5a, command 0x1a, followed by 3 bytes of Data.
 
 ### 0x07 - System information
 
-- Length 1, Data 0x00 - Returns 10 bytes of Data
-- Length 1, Data 0x01 - Returns 7 bytes of Data
-- Length 1, Data 0x02 - Returns firmware version as an ASCII string, 0 terminated
-- Length 1, Data 0x03 - Returns 19 bytes representing a 9 bytes hexadecimal value as a 0 terminated ASCII string
+- Length 1, Data 0x00 - Returns 16 bytes of Data, out of which the first six are the USB VID, REV and PID (the rest are 0's).
+- Length 1, Data 0x02 - Returns firmware version as an ASCII string, 0 terminated.
+- Length 1, Data 0x03 - Returns the USB serial as an ASCII string, 0 terminated.
 
-Neither of the above unknown values match the serial number or the Bluetooth MAC address.
+Setting Length to 0 returns the last received answer.
 
-Also note that there is no way of distinguishing between the responses, i.e. they don't contain information about the requested type. The apps for Windows and Android never request anything but the firmware revision (0x02), so the other values are possibly only used by the driver and/or the firmware updater.
+Note that there is no way of distinguishing between the responses, i.e. they don't contain information about the requested type. The apps for Windows and Android never request anything but the firmware revision (0x02).
 
 ### 0x11 - Get equalizer data
 
