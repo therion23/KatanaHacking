@@ -34,9 +34,11 @@ Magic byte 0x5a, command 0x1a, followed by 3 bytes of Data.
 - Length 1, Data 0x00 - Returns 10 bytes of Data
 - Length 1, Data 0x01 - Returns 7 bytes of Data
 - Length 1, Data 0x02 - Returns firmware version as an ASCII string, 0 terminated
-- Length 1, Data 0x03 - Returns 9 bytes in hexadecimal notation as a 0 terminated ASCII string
+- Length 1, Data 0x03 - Returns 19 bytes representing a 9 bytes hexadecimal value as a 0 terminated ASCII string
 
 Neither of the above unknown values match the serial number or the Bluetooth MAC address.
+
+Also note that there is no way of distinguishing between the responses, i.e. they don't contain information about the requested type. The apps for Windows and Android never request anything but the firmware revision (0x02), so the other values are possibly only used by the driver and/or the firmware updater.
 
 ### 0x11 - Get equalizer data
 
@@ -95,7 +97,7 @@ Neither of the above unknown values match the serial number or the Bluetooth MAC
 
 #### Subcommand 0x00 - Set input
 
-- Length 2, Data (with subcommand) 0x00 0xNN, where NN is 0x01 for Bluetooth, 0x04 for AUX (Jack in), 0x07 for Optical (S/PDIF), 0x09 for USB (mass storage), or 0x0C for Computer (via USB cable). Note that this command returns an error (0x02) followed immediately by an acknowledging packet - no idea why, but it does the job.
+- Length 2, Data (with subcommand) 0x00 0xNN, where NN is 0x01 for Bluetooth, 0x04 for AUX (Jack in), 0x07 for Optical (S/PDIF), 0x09 for USB (mass storage), or 0x0C for Computer (via USB cable). Note that this command returns an error (0x02) followed immediately by a Subcommand 0x01 reply.
 
 #### Subcommand 0x01 - Query input
 
