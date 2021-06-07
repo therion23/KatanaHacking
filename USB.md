@@ -31,7 +31,7 @@ Magic byte 0x5a, command 0x1a, followed by 3 bytes of Data.
 
 ### 0x07 - System information
 
-- Length 1, Data 0x00 - Returns 16 bytes of Data, out of which the first six are the USB VID, REV and PID (the rest are 0's).
+- Length 1, Data 0x00 - Returns 16 bytes of Data, out of which the first six are the USB PID, REV and VID (the rest are 0's).
 - Length 1, Data 0x02 - Returns firmware version as an ASCII string, 0 terminated.
 - Length 1, Data 0x03 - Returns the USB serial as an ASCII string, 0 terminated.
 
