@@ -3,6 +3,8 @@
 #
 # Written by Bo Krogsgaard in 2021, and donated to the Public Domain.
 #
+# Thanks to davorin from the ESPHome Discord for invaluable help.
+#
 # Note that esphome will nosedive if you enable FastLED when using remote_transmitter,
 # which is why neopixelbus is used here. A discussion about that issue can be found here:
 #
