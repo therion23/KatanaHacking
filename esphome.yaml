@@ -14,114 +14,117 @@
 # Run "esphome katana.yaml wizard" and add the following to katana.yaml before building.
 #
 
+# M5Stack Atom Lite built in IR transmitter
 remote_transmitter:
   pin:
     number: GPIO12
   carrier_duty_percent: 50%
 
+# Individual switches
 switch:
   - platform: template
     name: "Katana Mute"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
-        command: 0xF30C
+        address: 0xC144
+        command: 0x30CF
   - platform: template
     name: "Katana Power"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
-        command: 0xF708
+        address: 0xC144
+        command: 0x10EF
 
   - platform: template
     name: "Katana Bass"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
+        address: 0xC144
         command: 0xF00F
   - platform: template
     name: "Katana Plus"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
-        command: 0xF50a
+        address: 0xC144
+        command: 0x50AF
   - platform: template
     name: "Katana SBX"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
-        command: 0xE916
+        address: 0xC144
+        command: 0x6897
 
   - platform: template
     name: "Katana Left"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
-        command: 0xF807
+        address: 0xC144
+        command: 0xE01F
   - platform: template
     name: "Katana PlayPause"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
-        command: 0xF609
+        address: 0xC144
+        command: 0x906F
   - platform: template
     name: "Katana Right"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
-        command: 0xF906
+        address: 0xC144
+        command: 0x609F
 
   - platform: template
     name: "Katana Display"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
-        command: 0xFF00
+        address: 0xC144
+        command: 0x00FF
   - platform: template
     name: "Katana Minus"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
-        command: 0xFE01
+        address: 0xC144
+        command: 0x807F
   - platform: template
     name: "Katana LED"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
-        command: 0xFD02
+        address: 0xC144
+        command: 0x40BF
 
   - platform: template
     name: "Katana Bluetooth"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
-        command: 0xE31C
+        address: 0xC144
+        command: 0x38C7
   - platform: template
     name: "Katana USB"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
-        command: 0xEA15
+        address: 0xC144
+        command: 0xA857
 
   - platform: template
     name: "Katana Computer"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
-        command: 0xEC13
+        address: 0xC144
+        command: 0xC837
   - platform: template
     name: "Katana Optical"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
-        command: 0xEE11
+        address: 0xC144
+        command: 0x8877
   - platform: template
     name: "Katana AUX"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0x2283
-        command: 0xED12
+        address: 0xC144
+        command: 0x48B7
 
+# M5Stack Atom Lite built in RGB LED
 light:
   - platform: neopixelbus
     variant: WS2812X
@@ -136,6 +139,7 @@ light:
 #      - flicker:
 #      - addressable_rainbow:
 
+# M5Stack Atom Lite built in button
 binary_sensor:
   - platform: gpio
     pin:
