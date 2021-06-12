@@ -2,6 +2,7 @@ Program katanactl;
 Uses DOS;
 
 (* Very VERY crude way of controlling the Katana *)
+(* Compile with FreePascal and good luck! *)
 
 Const
   Magic: Byte = $5A;
