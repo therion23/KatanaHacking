@@ -21,4 +21,3 @@ If your Katana fries from trying out the USB commands documented here, it should
 - [Ian Douglas Scott](https://iandouglasscott.com/2018/01/14/reverse-engineering-creative-sound-blaster-e1/)
 - [Christos Arvanitis](https://arvchristos.github.io/post/matching-dev-hidraw-devices-with-physical-devices/)
 - [David Sword](https://davidsword.ca/create-custom-ir-remote-with-home-assistant-esphome/)
-- [Tatham Oddie](https://gist.github.com/tathamoddie/62afc41e5b4464f5adeef4b580fb3294)
