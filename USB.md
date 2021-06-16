@@ -6,6 +6,8 @@ Note that only root can write to a hidraw device. There is probably an absurdly 
 
 Note also that if you intend to program something around this, allocating 64 bytes for a receive buffer would be a good idea. The Katana always sends responses in 0 padded 64 byte blocks.
 
+Note three, that some of this is parsed in (katanactl.pp) and some is not - 24 hours in a day does not mean 24 spare hours in a day.
+
 ## Structures
 
 The command and response structures are identical:
