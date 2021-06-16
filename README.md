@@ -11,6 +11,9 @@ If your Katana fries from trying out the USB commands documented here, it should
 - [USB protocol](USB.md)
 - [Infrared codes](IR.md)
 
+## [Katana Control](katanactl.pp)
+- Compiles with FreePascal. It will be documented in the future, but for now, i use it to dump the missing "opcodes", both in realtime and from converted Wireshark dumps. You can also use it to (very rudimentarily) send commands to a Katana, but i recommend you don't do this unless you understand FreePascal syntax.
+
 ## What was used:
 - Firmware 2.1.210426.140 - this firmware update was not accompanied by a driver or application update, so i suppose this will work with the 2019 firmware as well.
 - USB protocol captured using Wireshark and USBPcap on Windows, and analysed using Wireshark on Linux.
