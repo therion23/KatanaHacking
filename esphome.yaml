@@ -23,108 +23,143 @@ remote_transmitter:
   carrier_duty_percent: 50%
 
 # Individual switches
+#
+# Commented out values are pre-2021.12 MSB values
+
 switch:
   - platform: template
     name: "Katana Mute"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
-        command: 0x30CF
+        address: 0x2283
+#        address: 0xC144
+        command: 0xF30C
+#        command: 0x30CF
   - platform: template
     name: "Katana Power"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
-        command: 0x10EF
+        address: 0x2283
+#        address: 0xC144
+        command: 0xF708
+#        command: 0x10EF
 
   - platform: template
     name: "Katana Bass"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
+        address: 0x2283
+#        address: 0xC144
         command: 0xF00F
+#        command: 0xF00F
   - platform: template
     name: "Katana Plus"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
-        command: 0x50AF
+        address: 0x2283
+#        address: 0xC144
+        command: 0xF50A
+#        command: 0x50AF
   - platform: template
     name: "Katana SBX"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
-        command: 0x6897
+        address: 0x2283
+#        address: 0xC144
+        command: 0xE916
+#        command: 0x6897
 
   - platform: template
     name: "Katana Left"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
-        command: 0xE01F
+        address: 0x2283
+#        address: 0xC144
+        command: 0xF807
+#        command: 0xE01F
   - platform: template
     name: "Katana PlayPause"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
-        command: 0x906F
+        address: 0x2283
+#        address: 0xC144
+        command: 0xF609
+#        command: 0x906F
   - platform: template
     name: "Katana Right"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
-        command: 0x609F
+        address: 0x2283
+#        address: 0xC144
+        command: 0xF906
+#        command: 0x609F
 
   - platform: template
     name: "Katana Display"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
-        command: 0x00FF
+        address: 0x2283
+#        address: 0xC144
+        command: 0xFF00
+#        command: 0x00FF
   - platform: template
     name: "Katana Minus"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
-        command: 0x807F
+        address: 0x2283
+#        address: 0xC144
+        command: 0xFE01
+#        command: 0x807F
   - platform: template
     name: "Katana LED"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
-        command: 0x40BF
+        address: 0x2283
+#        address: 0xC144
+        command: 0xFD02
+#        command: 0x40BF
 
   - platform: template
     name: "Katana Bluetooth"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
-        command: 0x38C7
+        address: 0x2283
+#        address: 0xC144
+        command: 0xE31C
+#        command: 0x38C7
   - platform: template
     name: "Katana USB"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
-        command: 0xA857
+        address: 0x2283
+#        address: 0xC144
+        command: 0xEA15
+#        command: 0xA857
 
   - platform: template
     name: "Katana Computer"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
-        command: 0xC837
+        address: 0x2283
+#        address: 0xC144
+        command: 0xEC13
+#        command: 0xC837
   - platform: template
     name: "Katana Optical"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
-        command: 0x8877
+        address: 0x2283
+#        address: 0xC144
+        command: 0xEE11
+#        command: 0x8877
   - platform: template
     name: "Katana AUX"
     turn_on_action:
       remote_transmitter.transmit_nec:
-        address: 0xC144
-        command: 0x48B7
+        address: 0x2283
+#        address: 0xC144
+        command: 0xED12
+#        command: 0x48B7
 
 # M5Stack Atom Lite built in RGB LED
 light:
